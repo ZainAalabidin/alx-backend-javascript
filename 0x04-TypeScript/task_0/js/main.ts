@@ -1,44 +1,47 @@
+// Define the Student interface
 interface Student {
-    firstname: string,
-    lastname: string,
-    age: number,
-    location: string
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
 }
 
-function createStudent(student: Student) {
-    return {
-        firstname: student.firstname,
-        lastname: student.lastname,
-        age: student.age,
-        location: student.location
-    }
-}
+// Create two student objects
+const student1: Student = {
+  firstName: 'Guillaume',
+  lastName: 'Salva',
+  age: 23,
+  location: 'San Francisco',
+};
 
-const student1 = createStudent({ firstname: 'john', lastname: "charles", age: 12, location: "Nairobi"})
-const student2 = createStudent({ firstname: 'Donald', lastname: "charles", age: 32, location: "USA"})
+const student2: Student = {
+  firstName: 'James',
+  lastName: 'Smith',
+  age: 25,
+  location: 'Columbia',
+};
 
-const studentsList = [ student1, student2 ];
+// Store the student objects in an array
+const studentsList: Student[] = [student1, student2];
 
-const table = document.createElement("table");
-const trow = document.createElement("tr");
-const trow1 = document.createElement("tr");
-const tdata = document.createElement("td");
-const tdata1 = document.createElement("td");
-const tdata2 = document.createElement("td");
-const tdata3 = document.createElement("td");
+// Create and render the table using Vanilla JavaScript
+const table = document.createElement('table');
+const tbody = document.createElement('tbody');
 
-tdata.innerHTML = ;
-tdata1.innerHTML = ;
+studentsList.forEach((student) => {
+  const row = document.createElement('tr');
 
-trow.appendChild(tdata);
-trow.appendChild(tdata1);
+  const firstNameCell = document.createElement('td');
+  firstNameCell.textContent = student.firstName;
+  row.appendChild(firstNameCell);
 
-table.appendChild(trow);
+  const locationCell = document.createElement('td');
+  locationCell.textContent = student.location;
+  row.appendChild(locationCell);
 
-tdata2.innerHTML = ;
-tdata3.innerHTML = ;
+  tbody.appendChild(row);
+});
 
-trow1.appendChild(tdata2);
-trow1.appendChild(tdata3);
+table.appendChild(tbody);
+document.body.appendChild(table);
 
-table.appendChild(trow1);
